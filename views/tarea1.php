@@ -37,18 +37,17 @@
             <script>
   // funcion autoejecutable para traer datos del backend
       (function() {
-
-      fetch(`../controllers/publisher.controller.php?operacion=listar`)
+       fetch(`../controllers/publisher.controller.php?operacion=listar`)
        .then(respuesta => respuesta.json())
        .then(datos => {
        console.log(datos)
 
           datos.forEach(element => {
       
-        const tagOption = document.createElement("option");
-         tagOption.value = element.id
-          tagOption.innerHTML = element.publisher_name
-         $("#publisher_name").appendChild(tagOption);
+        const option = document.createElement("option");
+         option.value = element._id
+         option.innerHTML = element.publisher_name
+         $("#_idpublisher").appendChild(Option);
       });
    })
      .catch(e => {

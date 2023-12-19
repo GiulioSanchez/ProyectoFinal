@@ -1,7 +1,7 @@
 <?php
 require_once 'Conexion.php';
 
-class Publisher extends Conexion{
+class publisher extends Conexion{
 
   private $pdo;
 
@@ -10,7 +10,7 @@ class Publisher extends Conexion{
   }
 
 //Devuelve la vista completa
-  public function getAll(){
+  public function searchAll($data=[]){
     try{
       $consulta = $this->pdo->prepare("CALL spu_publisher_listar()");
       $consulta->execute();
