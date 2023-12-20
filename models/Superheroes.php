@@ -1,7 +1,7 @@
 <?php
 require_once 'Conexion.php';
 
-class publisher extends Conexion{
+class Superheroes extends Conexion{
 
   private $pdo;
 
@@ -13,8 +13,12 @@ class publisher extends Conexion{
 //Devuelve la vista completa
   public function getAll($data= []){
     try{
-      $consulta = $this->pdo->prepare("CALL spu_listar_publisher");
-      $consulta->execute();
+      $consulta = $this->pdo->prepare("CALL spu_listar_superheroes(?)");
+      $consulta->execute(
+        array(
+            $data['publisher_id']
+        )
+      );
       return $consulta->fetchAll(PDO::FETCH_ASSOC);
 
     }

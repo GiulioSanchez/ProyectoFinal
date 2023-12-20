@@ -1,7 +1,7 @@
 <?php
 require_once 'Conexion.php';
 
-class publisher extends Conexion{
+class Bandos extends Conexion{
 
   private $pdo;
 
@@ -13,7 +13,7 @@ class publisher extends Conexion{
 //Devuelve la vista completa
   public function getAll($data= []){
     try{
-      $consulta = $this->pdo->prepare("CALL spu_listar_publisher");
+      $consulta = $this->pdo->prepare("CALL spu_listar_bandos");
       $consulta->execute();
       return $consulta->fetchAll(PDO::FETCH_ASSOC);
 
